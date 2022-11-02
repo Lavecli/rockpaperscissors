@@ -3,4 +3,63 @@
     function getComputerChoice(){
         return options[Math.floor(Math.random() * options.length)];
     }
+    computerwins = 0;
+    playerwins = 0;
+    function playRound(ComputerSelection, PlayerSelection){
+        PlayerSelection = prompt("Select your weapon: ").toUpperCase()
+        ComputerSelection = getComputerChoice().toUpperCase()
+        switch (PlayerSelection){
+            case "ROCK":
+                if (ComputerSelection == "ROCK"){
+                    return ("It's a tie");
+                } else if (ComputerSelection == "PAPER"){
+                    computerwins ++
+                    return ("You lose. Paper beats Rock");
+                } else {
+                    playerwins ++
+                    return ("You win. Rock beats Scissors")
+                }
+                break;  
+            case "PAPER": 
+                if (ComputerSelection == "PAPER"){
+                    return ("It's a tie");
+                } else if (ComputerSelection == "ROCK"){
+                    playerwins ++
+                    return ("You win. Paper beats Rock")
+                } else {
+                    computerwins ++
+                    return ("You lose. Scissors beats Paper")
+                }
+                break;
+            case "SCISSORS":
+                if (ComputerSelection == "SCISSORS"){
+                    return ("It's a tie")
+                } else if (ComputerSelection = "ROCK"){
+                    playerwin = false;
+                    computerwins ++
+                    return ("You lose. Rock beats Scissors")
+                } else {
+                    playerwins ++
+                    return ("You win. Scissors beats Paper") 
+                }
+                break;
+        }
+        }
+    
+  
+
+    function game(){
+        for (let i = 0; i < 5; i++){
+        result = playRound()
+        console.log(result)
+}       if (playerwins > computerwins){
+            console.log("YOU WIN!" + ` The score is ${playerwins} - ${computerwins}`)
+        } else if (playerwins == computerwins){
+            console.log("IT'S A TIE!" + ` The score is ${playerwins} - ${computerwins}`)
+        } else {
+            console.log("THE COMPUTER HAS WON!" + ` The score is ${playerwins} -
+            ${computerwins}`)
+        }
+    }
+    
     </script>
